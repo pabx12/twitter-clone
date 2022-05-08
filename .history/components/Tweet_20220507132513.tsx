@@ -30,7 +30,7 @@ function Tweet({ tweet }: Props) {
             <div className='flex justify-between mt-5'>
                 <div className='flex items-center space-x-3 text-gray-400'>
                     <ChatAlt2Icon className='h-5 w-5'/>
-                    <p>{tweet.relatedComments.length}</p>
+                    <p>1</p>
                 </div>
                 <div className='flex items-center space-x-3 text-gray-400'>
                     <SwitchHorizontalIcon className='h-5 w-5'/>

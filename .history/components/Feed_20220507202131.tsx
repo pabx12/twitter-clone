@@ -15,7 +15,7 @@ function Feed({ tweets:tweetsProps }: Props) {
     const tweets = await fetchTweets()
     setTweets(tweets)
     toast.success('Refreshed!', {
-    id: refreshToast})
+    id: 'refreshToast'})
   }
   return (
     <div className='col-span-7 lg:col-span-5 border-x overflow-y-scroll'>

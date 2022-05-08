@@ -5,7 +5,6 @@ import Sidebar from '../components/Sidebar'
 import Widgets from '../components/Widgets'
 import { Tweet } from '../typings'
 import { fetchTweets } from '../utils/fetchTweets'
-import { Toaster } from 'react-hot-toast';
 
 export type Props = {
   tweets: Tweet[]
@@ -22,7 +21,6 @@ const Home = ({tweets}:Props) => {
         <Sidebar/>
         <Feed tweets={tweets}/>
         <Widgets/>
-        <Toaster />
       </main>
       
         

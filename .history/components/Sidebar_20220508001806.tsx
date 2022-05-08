@@ -18,13 +18,13 @@ function Sidebar() {
     const { data: session } = useSession()
     if (session) {
       return (
-        <div className='w-full' onClick={() => signOut()}>
+        <div onClick={() => signOut()}>
          <SidebarRow  Icon={LogoutIcon} name="Log Out" />
         </div>
       )
     }
     return (
-      <div className='w-full' onClick={() => signIn()}>
+      <div onClick={() => signIn()}>
         <SidebarRow Icon={UserIcon} name="Sign In" />
       </div>
     )

@@ -11,7 +11,6 @@ const feedQuery = groq`
  "relatedComments": *[_type=='comment' && references(^._id)]{ 
   _id,
   comment,
-  _createdAt,
   author->
  
 },

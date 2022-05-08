@@ -12,21 +12,21 @@ import {
     LogoutIcon
 } from '@heroicons/react/outline'
 import { useSession, signIn, signOut } from "next-auth/react"
+const { data: session } = useSession()
 
 function Sidebar() {
   function LoginBtn(){
-    const { data: session } = useSession()
     if (session) {
       return (
-        <div className='w-full' onClick={() => signOut()}>
-         <SidebarRow  Icon={LogoutIcon} name="Log Out" />
-        </div>
+        <>
+         <SidebarRow Icon={LogoutIcon} name="Log Out" />
+        </>
       )
     }
     return (
-      <div className='w-full' onClick={() => signIn()}>
-        <SidebarRow Icon={UserIcon} name="Sign In" />
-      </div>
+      <>
+       <SidebarRow Icon={UserIcon} name="Sign In" />
+      </>
     )
   }
   return (
@@ -38,11 +38,8 @@ function Sidebar() {
         <SidebarRow Icon={MailIcon} name="Messages" />
         <SidebarRow Icon={BookmarkIcon} name="Bookmarks" />
         <SidebarRow Icon={CollectionIcon} name="Lists" />
-        <LoginBtn />
+        <SidebarRow Icon={UserIcon} name="Sign In" />
         <SidebarRow Icon={DotsCircleHorizontalIcon} name="More" />
-        <div className='flex max-w-fit items-center'>
-          <button className='hidden md:inline w-40 px-5 py-3 bg-twitter text-sm font-bold text-white rounded-2xl hover:bg-blue-400 transition-all duration-200'>Tweet</button>
-        </div>
     </div>
   )
 }

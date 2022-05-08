@@ -1,6 +1,5 @@
 import { RefreshIcon } from '@heroicons/react/outline'
 import React from 'react'
-import toast from 'react-hot-toast'
 import { Tweet } from '../typings'
 import { fetchTweets } from '../utils/fetchTweets'
 import  TweetComponent from './Tweet'
@@ -11,11 +10,8 @@ export type Props = {
 function Feed({ tweets:tweetsProps }: Props) {
   const [tweets, setTweets] = React.useState<Tweet[]>(tweetsProps)
   const refreshTweets = async () => {
-    const refreshToast = toast.loading('Refreshing...')
     const tweets = await fetchTweets()
     setTweets(tweets)
-    toast.success('Refreshed!', {
-    id: refreshToast})
   }
   return (
     <div className='col-span-7 lg:col-span-5 border-x overflow-y-scroll'>

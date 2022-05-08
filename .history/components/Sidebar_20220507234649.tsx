@@ -18,15 +18,15 @@ function Sidebar() {
     const { data: session } = useSession()
     if (session) {
       return (
-        <div className='w-full' onClick={() => signOut()}>
-         <SidebarRow  Icon={LogoutIcon} name="Log Out" />
-        </div>
+        <>
+         <SidebarRow Icon={LogoutIcon} name="Log Out" />
+        </>
       )
     }
     return (
-      <div className='w-full' onClick={() => signIn()}>
-        <SidebarRow Icon={UserIcon} name="Sign In" />
-      </div>
+      <>
+       <SidebarRow Icon={UserIcon} name="Sign In" />
+      </>
     )
   }
   return (
@@ -41,7 +41,7 @@ function Sidebar() {
         <LoginBtn />
         <SidebarRow Icon={DotsCircleHorizontalIcon} name="More" />
         <div className='flex max-w-fit items-center'>
-          <button className='hidden md:inline w-40 px-5 py-3 bg-twitter text-sm font-bold text-white rounded-2xl hover:bg-blue-400 transition-all duration-200'>Tweet</button>
+          <button className='w-40 px-5 py-3 bg-twitter text-white rounded-lg hover:bg-blue-600'>Tweet</button>
         </div>
     </div>
   )
