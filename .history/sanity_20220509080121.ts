@@ -5,4 +5,4 @@ export const client:any = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   token: process.env.SANITY_API_TOKEN,
   useCdn: process.env.NODE_ENV === 'production'
-}); // Create a client instance
+});
