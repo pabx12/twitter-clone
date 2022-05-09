@@ -28,8 +28,8 @@ function Feed({ tweets:tweetsProps }: Props) {
             <TweetBox setTweets={setTweets}/>
         </div>
         <div>
-            {tweets.map((tweet, i) => (
-              <TweetComponent key={i} tweet = {tweet}/>
+            {tweets.map((tweet) => (
+              <TweetComponent key={tweet._id} tweet = {tweet}/>
             ))}
         </div>
     </div>
