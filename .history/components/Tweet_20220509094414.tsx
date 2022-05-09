@@ -62,7 +62,7 @@ function Tweet({ tweet }: Props) {
                         <p className='hidden text-sm text-gray-600 md:inline'> @{tweet.user?.name.replace(/\s+/g,"").toLowerCase()} </p>
 
                         <ReactTimeAgo 
-                            date={Date.parse(tweet._createdAt)} 
+                            date={tweet._createdAt}  
                             locale="fr-FR"
                             className='text-sm text-gray-600'
                         />
@@ -120,7 +120,7 @@ function Tweet({ tweet }: Props) {
                                     <p className='mr-1 font-bold'> {comment.user?.name} </p>
                                     <p className='hidden text-sm text-gray-600 md:inline'> @{comment.user?.name.replace(/\s+/g,"").toLowerCase()} </p>
                                     <ReactTimeAgo
-                                        date={Date.parse(comment._createdAt)}
+                                        date={comment._createdAt}
                                         locale="fr-FR"
                                         className='text-sm text-gray-600'
                                     />

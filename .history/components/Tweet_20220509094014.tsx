@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { CommentBody, Tweet, User, UserBody } from '../typings'
 import ReactTimeAgo from 'react-time-ago'
+import fr from 'javascript-time-ago/locale/fr.json'
+import TimeAgo from 'javascript-time-ago'
 import { ChatAlt2Icon, SwitchHorizontalIcon, HeartIcon, UploadIcon } from '@heroicons/react/outline'
 import { useSession} from "next-auth/react"
 import toast from 'react-hot-toast'
@@ -8,6 +10,7 @@ import { fetchTweets } from '../utils/fetchTweets'
 export type Props = {
     tweet: Tweet
 }
+TimeAgo.addDefaultLocale(fr)
 function Tweet({ tweet }: Props) {
     const { data: session } = useSession()
 
@@ -62,7 +65,7 @@ function Tweet({ tweet }: Props) {
                         <p className='hidden text-sm text-gray-600 md:inline'> @{tweet.user?.name.replace(/\s+/g,"").toLowerCase()} </p>
 
                         <ReactTimeAgo 
-                            date={Date.parse(tweet._createdAt)} 
+                            date={tweet._createdAt}  
                             locale="fr-FR"
                             className='text-sm text-gray-600'
                         />
@@ -120,7 +123,7 @@ function Tweet({ tweet }: Props) {
                                     <p className='mr-1 font-bold'> {comment.user?.name} </p>
                                     <p className='hidden text-sm text-gray-600 md:inline'> @{comment.user?.name.replace(/\s+/g,"").toLowerCase()} </p>
                                     <ReactTimeAgo
-                                        date={Date.parse(comment._createdAt)}
+                                        date={comment._createdAt}
                                         locale="fr-FR"
                                         className='text-sm text-gray-600'
                                     />

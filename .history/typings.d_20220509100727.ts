@@ -1,6 +1,6 @@
 export interface Tweet extends TweetBody{
     _id:String,
-    _createdAt:string,
+    _createdAt:String,
     _updatedAt:String,
     _rev:String,
     _type:'tweet'
@@ -14,7 +14,7 @@ export interface User extends UserBody{
 }
 export interface  Comment extends CommentBody{
     _id:String,
-    _createdAt:string,
+    _createdAt:String,
     _updatedAt:String,
     _rev:String,
     _type:'comment'
