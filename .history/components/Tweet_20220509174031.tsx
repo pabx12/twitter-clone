@@ -14,7 +14,6 @@ function Tweet({ tweet }: Props) {
     const [input, setInput] = useState<string>('')
     const [commentBoxOpen, setCommentBoxOpen] = useState<boolean>(false)
     const [userBD, setUserBD] = useState<User>()
-    const [userloading, setUserLoading] = useState<boolean>(true)
 
     const postComment = async (comment:CommentBody) => {
           const result = await fetch('api/addComment', {
@@ -29,20 +28,20 @@ function Tweet({ tweet }: Props) {
             // setTweets(newTweets)
             toast.success('Comment sended!')
       }
-
-    useEffect(() => {
-        const loadUserBD = async () => {
-            if(session && session.user) {
-            const result = await fetch(`api/getUser/?email=${session?.user.email}`)
-            const data = await result.json()
-            setUserBD(data)
-            }
-            return
+    const loadUserBD = async () => {
+        if(session && session.user) {
+        const result = await fetch(`api/getUser/?email=${session?.user.email}`)
+        const data = await result.json()
+        setUserBD(data)
         }
+        return
+    }
+           
+    useEffect(() => {
         loadUserBD()
-    }, [userloading])
+    }, [])
+    console.log(userBD)
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        setUserLoading(true)
         e.preventDefault()
         if (!input) return
         const commentBody: CommentBody = {
@@ -51,7 +50,6 @@ function Tweet({ tweet }: Props) {
             tweetID: tweet._id
         }
         postComment(commentBody)
-        setUserLoading(false)
         setInput('')
         setCommentBoxOpen(false)
     }

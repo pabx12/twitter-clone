@@ -41,6 +41,7 @@ function Tweet({ tweet }: Props) {
         }
         loadUserBD()
     }, [userloading])
+    console.log(userBD)
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setUserLoading(true)
         e.preventDefault()
