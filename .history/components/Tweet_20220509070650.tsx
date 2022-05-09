@@ -62,7 +62,7 @@ function Tweet({ tweet }: Props) {
                         <p className='hidden text-sm text-gray-600 md:inline'> @{tweet.user?.name.replace(/\s+/g,"").toLowerCase()} </p>
 
                         <ReactTimeAgo 
-                            date={tweet._createdAt}  
+                            date={`${tweet._createdAt}`}  
                             locale="fr-FR"
                             className='text-sm text-gray-600'
                         />
@@ -71,7 +71,7 @@ function Tweet({ tweet }: Props) {
             </div>
             <div>
                 <p className='text-sm text-gray-900 pt-1'> {tweet.title} </p>
-                {tweet.tweetImage && <img src={`${tweet.tweetImage}`} alt='tweet' className='m-5 ml-0 mb-1 max-h-60 rounded-lg shadow-sm object-cover'/>}
+                {tweet.tweetImage && <img src={tweet.tweetImage} alt='tweet' className='m-5 ml-0 mb-1 max-h-60 rounded-lg shadow-sm object-cover'/>}
             </div>
             <div className='flex justify-between mt-5'>
                 <div  onClick={() => setCommentBoxOpen(!commentBoxOpen) } className='flex items-center space-x-3 text-gray-400 cursor-pointer'>

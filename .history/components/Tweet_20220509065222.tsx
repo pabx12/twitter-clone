@@ -71,7 +71,7 @@ function Tweet({ tweet }: Props) {
             </div>
             <div>
                 <p className='text-sm text-gray-900 pt-1'> {tweet.title} </p>
-                {tweet.tweetImage && <img src={`${tweet.tweetImage}`} alt='tweet' className='m-5 ml-0 mb-1 max-h-60 rounded-lg shadow-sm object-cover'/>}
+                {tweet.tweetImage && <img src={tweet.tweetImage} alt='tweet' className='m-5 ml-0 mb-1 max-h-60 rounded-lg shadow-sm object-cover'/>}
             </div>
             <div className='flex justify-between mt-5'>
                 <div  onClick={() => setCommentBoxOpen(!commentBoxOpen) } className='flex items-center space-x-3 text-gray-400 cursor-pointer'>
@@ -114,7 +114,7 @@ function Tweet({ tweet }: Props) {
                 {tweet.relatedComments?.map((comment, i) => (
                     <div key={i} className='relative flex space-x-2'>
                             <hr className='absolute left-5 top-10 border-x h-8 border-twitter/30 last:border-0'/>
-                            <img src={`${comment.user?.image}`} alt='profile' className='mt-2 rounded-full w-7 h-7 object-cover'/>
+                            <img src={comment.user?.image} alt='profile' className='mt-2 rounded-full w-7 h-7 object-cover'/>
                             <div>
                                 <div className='flex items-center space-x-1'>
                                     <p className='mr-1 font-bold'> {comment.user?.name} </p>

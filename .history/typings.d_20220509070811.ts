@@ -14,9 +14,9 @@ export interface User extends UserBody{
 }
 export interface  Comment extends CommentBody{
     _id:String,
-    _createdAt:Date,
-    _updatedAt:String,
-    _rev:String,
+    _createdAt:String
+    _updatedAt:String
+    _rev:String
     _type:'comment'
 }
 export type UserBody ={

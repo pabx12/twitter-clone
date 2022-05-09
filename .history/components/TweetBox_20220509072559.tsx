@@ -7,6 +7,7 @@ import toast from 'react-hot-toast'
 
 export type Props = {
     setTweets: Dispatch<SetStateAction<Tweet[]>>,
+    onClick :  React.FormEvent<HTMLFormElement>
 }
 
 function TweetBox({setTweets}:Props) {
@@ -62,7 +63,7 @@ function TweetBox({setTweets}:Props) {
             className="rounded-full object-cover w-14 h-14 mt-4"
         />
         <div className='flex flex-1 pl-2'>
-            <form onSubmit={handleSubmit} className='flex flex-1 flex-col'>
+            <form className='flex flex-1 flex-col'>
                 <input 
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
@@ -79,7 +80,7 @@ function TweetBox({setTweets}:Props) {
                         <LocationMarkerIcon className='h-5 w-5'/>
 
                     </div>
-                    <button type='submit'  disabled={!input || !session} className='bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40'>Tweet</button>
+                    <button type='submit' onClick={handleSubmit} disabled={!input || !session} className='bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40'>Tweet</button>
                 </div>
 
                 {imgUrlBoxOpen && (
