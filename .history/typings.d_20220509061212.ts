@@ -33,7 +33,7 @@ export type TweetBody = {
 }
 export type CommentBody = {
     comment : String,
-    user?:UserBody,
+    user:UserBody,
     userID : String,
     commentImage?:String,
     tweetID:String
